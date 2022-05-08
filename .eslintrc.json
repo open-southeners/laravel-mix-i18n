@@ -1,0 +1,21 @@
+{
+    "env": {
+        "commonjs": true,
+        "es2020": true,
+        "node": true
+    },
+    "extends": [
+        "standard",
+        "prettier"
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "requireConfigFile": false,
+        "node": 14,
+        "ecmaVersion": 2020
+    },
+    "globals": {
+        "Mix": true,
+        "Config": true
+    }
+}

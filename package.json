@@ -1,0 +1,43 @@
+{
+    "name": "laravel-mix-i18n",
+    "version": "0.1.0",
+    "description": "Integrate Laravel Mix with vue-i18n (its official Webpack loader)",
+    "bugs": {
+        "url": "https://github.com/open-southeners/laravel-mix-i18n/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/open-southeners/laravel-mix-i18n.git"
+    },
+    "license": "MIT",
+    "main": "index.js",
+    "types": "types.d.ts",
+    "bin": {
+        "i18n-extractor": "./bin/cli.js"
+    },
+    "dependencies": {
+        "@intlify/vue-i18n-loader": "^4.2.0",
+        "fs-extra": "^10.1.0",
+        "glob-promise": "^4.2.2",
+        "yargs": "^17.4.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.17.10",
+        "@babel/eslint-parser": "^7.17.0",
+        "eslint": "^8.0.1",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-n": "^15.0.0",
+        "eslint-plugin-promise": "^6.0.0",
+        "jest": "^28.0.3",
+        "laravel-mix": "^6.0.43",
+        "prettier": "^2.6.2"
+    },
+    "peerDependencies": {
+        "laravel-mix": "^6.0.43"
+    },
+    "engines": {
+        "node": "^14.5.0"
+    }
+}
