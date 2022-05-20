@@ -25,8 +25,8 @@ class i18n {
      * be installed for this component to work
      *
      * @returns {import("laravel-mix/src/Dependencies").Dependency[]}
-     **/
-     dependencies() {
+     */
+    dependencies() {
         return ['@intlify/vue-i18n-loader'];
     }
 
@@ -57,17 +57,6 @@ class i18n {
             this.entry = entries.map(entry => new File(entry));
         }
     }
-
-    /**
-     * Assets to append to the webpack entry.
-     *
-     * @param {import('laravel-mix/src/builder/Entry')} entry
-     */
-    //  webpackEntry(entry) {
-    //     this.entry.forEach(file => {
-    //         entry.add(this. this.options.extractor.path, file, this.entry[0]);
-    //     });
-    // }
 
     /**
      * Rules to be merged with the underlying webpack rules.
