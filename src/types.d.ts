@@ -5,7 +5,7 @@ declare module 'laravel-mix' {
          *
          * `src` may be a glob pattern
          **/
-        i18n(src: string | string [], options: I18nMixOptions): Api
+        i18n(src: string | string[], options: I18nMixOptions): Api
     }
 }
 
@@ -18,6 +18,6 @@ export interface I18nExtractorOptions {
 }
 
 export interface I18nMixOptions {
-    extract?: boolean
-    extractor?: Partial<I18nExtractorOptions>
+    loader?: boolean
+    extractor?: Partial<Omit<I18nExtractorOptions, 'path' | 'output'>>
 }

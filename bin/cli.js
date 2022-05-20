@@ -15,7 +15,7 @@ yargs(hideBin(process.argv))
             'path': {
                 alias: 'p',
                 describe: 'Source path where start finding for your project\'s code (can be relative)',
-                default: path.join(process.cwd(), 'resources', 'js')
+                default: path.join('resources', 'js')
             },
             'extensions': {
                 alias: 'e',
@@ -25,7 +25,7 @@ yargs(hideBin(process.argv))
             'output': {
                 alias: 'o',
                 describe: 'Output path to place all generated locales',
-                default: path.join(process.cwd(), 'resources', 'lang')
+                default: path.join('resources', 'lang')
             },
             'match': {
                 alias: 'm',
@@ -35,6 +35,8 @@ yargs(hideBin(process.argv))
         })
     }, (argv) => {
         extractor(argv.locales, argv)
+
+        console.info(`${argv.locales} files generated successfully!`)
     })
     .help()
     .parse()

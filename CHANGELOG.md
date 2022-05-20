@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2022-05-20
+
+### Fixed
+
+- Webpack plugin doesn't output the right files
+
+### Changed
+
+- Options & default options to work with webpack (CLI remains the same)
+
 ## [0.2.0] - 2022-05-20
 
 ### Added

@@ -20,14 +20,15 @@ require('laravel-mix-i18n')
 
 // Rest of your mix tasks here...
 
-mix.i18n('resources/views', {
-    extract: true,
+mix.i18n('resources/views', 'resources/lang', {
+    loader: true,
     extractor: {
-        extensions: '.blade.php',
-        output: 'resources/lang'
+        extensions: '.blade.php'
     }
 })
 ```
+
+[Check loader documentation here](https://github.com/intlify/bundle-tools/tree/main/packages/vue-i18n-loader#intlifyvue-i18n-loader).
 
 ## Advanced usage
 
@@ -43,14 +44,16 @@ For more help just run it with `--help` or check the options below for more refe
 
 ### Options
 
-**Note: These are the options available for the extractor both in CLI, and webpack through `extractor` key**
+**Note: These are the options available for the extractor both in CLI, and webpack through `extractor` key except `path` and `output`.**
 
-| **Name**   | **Type**           | **Default**                                            |
-|------------|--------------------|--------------------------------------------------------|
-| path       | `string`           | {currentDir}/resources/js                              |
-| extensions | `string`           | ts,tsx,js,jsx,vue,blade.php                            |
-| output     | `string`           | {currentDir}/resources/lang                            |
-| match      | `RegExp \| string` | ```/(\$t\|trans\|__)\([\'"`]([a-zA-Z0-9: ]+)[\'"`]/``` |
+| **Name**   | **Type**           | **Available** | **Default**                                                |
+|------------|--------------------|---------------|------------------------------------------------------------|
+| path       | `string`           | CLI           | `resources/js`                                             |
+| output     | `string`           | CLI           | `resources/lang`                                           |
+| extensions | `string`           | CLI & Webpack | `ts,tsx,js,jsx,vue,blade.php`                              |
+| match      | `RegExp \| string` | CLI & Webpack | ```(t\|trans\|__)\\([\\\'"`]([a-zA-Z0-9: ]+)[\\\'"`]\\)``` |
+| locales    | `string`           | CLI & Webpack | **Required**                                               |
+| loader     | `boolean`          | Webpack       | `false`                                                    |
 
 ## License
 
