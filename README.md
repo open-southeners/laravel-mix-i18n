@@ -21,8 +21,11 @@ require('laravel-mix-i18n')
 // Rest of your mix tasks here...
 
 mix.i18n('resources/views', {
-    extensions: '.blade.php',
-    output: 'resources/lang'
+    extract: true,
+    extractor: {
+        extensions: '.blade.php',
+        output: 'resources/lang'
+    }
 })
 ```
 
