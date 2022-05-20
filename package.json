@@ -1,6 +1,6 @@
 {
     "name": "laravel-mix-i18n",
-    "version": "0.2.0",
+    "version": "1.0.0",
     "description": "Integrate Laravel Mix with vue-i18n (its official Webpack loader)",
     "keywords": [
         "laravel-mix",
