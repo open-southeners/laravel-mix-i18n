@@ -1,14 +1,16 @@
 const path = require('path')
-const { writeJson, readFile, copyFile, constants } = require('fs-extra')
+const { writeJson, readFile, existsSync } = require('fs-extra')
 const glob = require('glob-promise')
+const merge = require('deepmerge')
 
 /**
  * @param {string} currentDir
- * @param {RegExp|null} match
+ * @param {RegExp|string} match
+ * @param {string} filesExt
  */
-async function jsonMatchingContent(currentDir, match = null) {
-    const regex = match || /(trans|__)\(['"`]([a-zA-Z0-9: ]+)['"`]/gm
-    const files = await glob(`${currentDir}/**/*.{js,vue,blade.php}`)
+async function jsonMatchingContent(currentDir, match, filesExt) {
+    const regex = new RegExp(match, 'gm')
+    const files = await glob(`${currentDir}/**/*.{${filesExt}}`)
     const jsonMatchedContentObj = {}
 
     for (const file of files) {
@@ -38,6 +40,7 @@ async function jsonMatchingContent(currentDir, match = null) {
 /**
  * @param {string} locales
  * @param {import('./types').I18nExtractorOptions} options
+ * @return {Promise}
  */
 module.exports = async function (locales, options) {
     const localesArr = locales.split(',')
@@ -56,28 +59,22 @@ module.exports = async function (locales, options) {
         generatedLocaleFilePathArr.push(path.resolve(currentDir, `${locale}.json`))
     }
 
-    const contentMatched = await jsonMatchingContent(currentDir, options.match)
+    let contentMatched = await jsonMatchingContent(currentDir, options.match, options.extensions)
+    let filePath
+
+    while (filePath = generatedLocaleFilePathArr.pop()) {
+        if (existsSync(filePath)) {
+            const originalFileContent = await readFile(filePath)
     
-    const filePath = generatedLocaleFilePathArr.shift()
-
-    try {
-        await writeJson(filePath, contentMatched)
-    } catch (err) {
-        console.debug(err)
-        console.error('Something happened trying to write the locale file. Please try again.')
-    } finally {
-        if (generatedLocaleFilePathArr.length > 0) {
-            for (const toCopyFilePath of generatedLocaleFilePathArr) {
-                copyFile(filePath, toCopyFilePath, constants.COPYFILE_EXCL, (err) => {
-                    if (err) {
-                        console.error(`Error copying file ${toCopyFilePath} :`, err)
-                    }
-                })
-            }
-
-            console.log(`${locales} files generated successfully!`)
+            contentMatched = merge(contentMatched, JSON.parse(originalFileContent))
         }
 
-        console.log(`${filePath} file generated successfully!`)
+        try {
+            await writeJson(filePath, contentMatched)
+        } catch (err) {
+            console.error('Something happened trying to write the locale file. Please try again.')
+        }
     }
+
+    console.log(`${locales} files generated successfully!`)
 }

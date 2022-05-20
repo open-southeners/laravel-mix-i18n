@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2022-05-20
+
+### Added
+
+- Locale files are now generated leaving previously translated values
+- Multiple options now available in the CLI + Laravel Mix plugin like: `match`, `output`, `extensions`
+
+### Changed
+
+- Multiple internal API changes
+
 ## [0.1.0] - 2022-05-08
 
 ### Added

@@ -28,10 +28,7 @@ class i18n {
         this.options = options;
 
         if ('extract' in this.options && this.options.extract) {
-            extractor(this.options.extractor.locales, {
-                path: this.options.extractor.path || this.entry,
-                match: this.options.extractor.match
-            });
+            extractor(this.options.extractor.locales, this.options.extractor);
         }
     }
 

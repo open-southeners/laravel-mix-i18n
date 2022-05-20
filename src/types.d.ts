@@ -11,12 +11,13 @@ declare module 'laravel-mix' {
 
 export interface I18nExtractorOptions {
     path?: string
-    match?: RegExp
+    match?: RegExp | string
+    output?: string
     locales: string
+    extensions?: string
 }
 
 export interface I18nMixOptions {
     extract?: boolean
-    extractor?: I18nExtractorOptions
+    extractor?: Partial<I18nExtractorOptions>
 }
-
