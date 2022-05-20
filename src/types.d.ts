@@ -1,11 +1,9 @@
 declare module 'laravel-mix' {
     interface Api {
         /**
-         * Compile JavaScript or TypeScript using SWC
-         *
-         * `src` may be a glob pattern
+         * Process code to generate translation files from them
          **/
-        i18n(src: string | string[], options: I18nMixOptions): Api
+        i18n(src: string, output: string, options: I18nMixOptions): Api
     }
 }
 
