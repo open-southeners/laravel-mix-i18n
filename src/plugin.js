@@ -24,11 +24,12 @@ class i18n {
      * @param {import('./types').I18nMixOptions} options
      */
     register(entry, options = {}) {
-        this.entry = entry;
         this.options = options;
 
+        this.options.extractor.path = entry;
+
         if ('extract' in this.options && this.options.extract) {
-            extractor(this.options.extractor.locales, this.options.extractor);
+            this.entry = extractor(this.options.extractor.locales, this.options?.extractor || {});
         }
     }
 
