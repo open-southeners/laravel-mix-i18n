@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2022-05-25
+
+### Added
+
+- Json indentation option for prettify file content writing
+
+### Fixed
+
+- Issue with predefined options (constants)
+- Removed deepmerge still in use in extractor (changed)
+
 ## [1.1.0] - 2022-05-25
 
 ### Added
