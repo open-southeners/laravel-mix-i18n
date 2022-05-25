@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2022-05-25
+
+### Added
+
+- Compatibility with Vue 2
+
+### Fixed
+
+- Options object key-values didn't get merged properly with defaults (user options not respected)
+- Removing NodeJS engine restriction
+
 ## [1.0.1] - 2022-05-20
 
 ### Changed
