@@ -27,7 +27,14 @@ class i18n {
      * @returns {import("laravel-mix/src/Dependencies").Dependency[]}
      */
     dependencies() {
-        return ['@intlify/vue-i18n-loader'];
+        const loaderPackageName = '@intlify/vue-i18n-loader'
+        const vueLoaderDependency = Mix.dependencies.items.filter(dep => dep.package.includes('vue-loader'))?.[0]
+
+        if (vueLoaderDependency.package.includes('15')) {
+            return [`${loaderPackageName}@^1.1.0`]
+        }
+
+        return [loaderPackageName];
     }
 
     /**
