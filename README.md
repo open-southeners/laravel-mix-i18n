@@ -46,14 +46,15 @@ For more help just run it with `--help` or check the options below for more refe
 
 **Note: These are the options available for the extractor both in CLI, and webpack through `extractor` key except `path` and `output`.**
 
-| **Name**   | **Type**           | **Available** | **Default**                                                |
-|------------|--------------------|---------------|------------------------------------------------------------|
-| path       | `string`           | CLI           | `resources/js`                                             |
-| output     | `string`           | CLI           | `resources/lang`                                           |
-| extensions | `string`           | CLI & Webpack | `ts,tsx,js,jsx,vue,blade.php`                              |
-| match      | `RegExp \| string` | CLI & Webpack | ```(t\|trans\|__)\\([\\\'"`]([a-zA-Z0-9: ]+)[\\\'"`]\\)``` |
-| locales    | `string`           | CLI & Webpack | **Required**                                               |
-| loader     | `boolean`          | Webpack       | `false`                                                    |
+| **Name**    | **Type**           | **Available** | **Default**                                                |
+|-------------|--------------------|---------------|------------------------------------------------------------|
+| path        | `string`           | CLI           | `resources/js`                                             |
+| output      | `string`           | CLI           | `resources/lang`                                           |
+| extensions  | `string`           | CLI & Webpack | `ts,tsx,js,jsx,vue,blade.php`                              |
+| match       | `RegExp \| string` | CLI & Webpack | ```(t\|trans\|__)\\([\\\'"`]([a-zA-Z0-9: ]+)[\\\'"`]\\)``` |
+| locales     | `string`           | CLI & Webpack | **Required**                                               |
+| loader      | `boolean`          | Webpack       | `false`                                                    |
+| indentation | `string \| number` | CLI & Webpack | `2`                                                        |
 
 ## License
 
