@@ -50,9 +50,9 @@ class i18n {
                 path: entry,
                 output
             }
-        }, {
+        }, options, {
             extractor: constants
-        }, options);
+        });
 
         if ('locales' in this.options.extractor) {
             const entries = extractor(this.options.extractor.locales, this.options.extractor)

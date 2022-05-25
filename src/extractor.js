@@ -1,7 +1,7 @@
 const path = require('path')
 const { writeJsonSync, readFileSync, existsSync } = require('fs-extra')
 const glob = require('glob')
-const merge = require('deepmerge')
+const defaults = require('lodash.defaultsdeep')
 
 /**
  * @param {string} currentDir
@@ -14,7 +14,7 @@ function jsonMatchingContent(currentDir, match, filesExt) {
     const jsonMatchedContentObj = {}
 
     for (const file of files) {
-        const fileContent = readFileSync(file)
+        const fileContent = readFileSync(file, { encoding: 'utf8' })
         let matchedContent
 
         while ((matchedContent = regex.exec(fileContent)) !== null) {
@@ -66,7 +66,7 @@ module.exports = function (locales, options) {
     // eslint-disable-next-line no-cond-assign
     while (filePath = generatedLocaleFilePathArr.pop()) {
         if (existsSync(filePath)) {
-            contentMatched = merge(contentMatched, JSON.parse(readFileSync(filePath)))
+            contentMatched = defaults(JSON.parse(readFileSync(filePath)), contentMatched)
         }
 
         writeJsonSync(filePath, contentMatched, { encoding: 'utf8' })
