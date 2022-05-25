@@ -2,7 +2,7 @@ const File = require('laravel-mix/src/File')
 const path = require('path');
 const extractor = require('./extractor');
 const constants = require('./constants');
-const merge = require('deepmerge');
+const defaults = require('lodash.defaultsdeep');
 
 class i18n {
     /** @type {File[]} */
@@ -45,18 +45,14 @@ class i18n {
      * @param {import('./types').I18nMixOptions} options
      */
     register(entry, output, options = {}) {
-        this.options = merge.all([
-            {
-                extractor: {
-                    path: entry,
-                    output
-                }
-            },
-            options,
-            {
-                extractor: constants
+        this.options = defaults({
+            extractor: {
+                path: entry,
+                output
             }
-        ]);
+        }, {
+            extractor: constants
+        }, options);
 
         if ('locales' in this.options.extractor) {
             const entries = extractor(this.options.extractor.locales, this.options.extractor)

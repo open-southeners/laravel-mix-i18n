@@ -24,15 +24,16 @@
         "i18n-extractor": "./bin/cli.js"
     },
     "dependencies": {
-        "deepmerge": "^4.2.2",
         "fs-extra": "^10.1.0",
         "glob": "^8.0.3",
+        "lodash.defaultsdeep": "^4.6.1",
         "yargs": "^17.4.1"
     },
     "devDependencies": {
         "@babel/core": "^7.17.10",
         "@babel/eslint-parser": "^7.17.0",
         "@intlify/vue-i18n-loader": "^4.2.0",
+        "@types/lodash.defaultsdeep": "^4.6.7",
         "eslint": "^8.0.1",
         "eslint-config-prettier": "^8.5.0",
         "eslint-config-standard": "^17.0.0",
