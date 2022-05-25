@@ -73,7 +73,7 @@ class i18n {
 
         return [
             {
-                test: /\.(json5?|ya?ml)$/,
+                resourceQuery: /blockType=i18n/,
                 type: 'javascript/auto',
                 loader: '@intlify/vue-i18n-loader',
                 include: [
