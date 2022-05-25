@@ -31,6 +31,11 @@ yargs(hideBin(process.argv))
                 alias: 'm',
                 describe: 'Customize match regexp to search within input files',
                 default: constants.match
+            },
+            'indentation': {
+                alias: 'i',
+                describe: 'Customize spaces / indentation in files written (prettify JSON)',
+                default: constants.indentation
             }
         })
     }, (argv) => {

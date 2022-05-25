@@ -13,6 +13,7 @@ export interface I18nExtractorOptions {
     output?: string
     locales: string
     extensions?: string
+    indentation?: string | number
 }
 
 export interface I18nMixOptions {

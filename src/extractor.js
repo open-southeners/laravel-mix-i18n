@@ -66,10 +66,10 @@ module.exports = function (locales, options) {
     // eslint-disable-next-line no-cond-assign
     while (filePath = generatedLocaleFilePathArr.pop()) {
         if (existsSync(filePath)) {
-            contentMatched = defaults(JSON.parse(readFileSync(filePath)), contentMatched)
+            contentMatched = defaults(JSON.parse(readFileSync(filePath, { encoding: 'utf8' })), contentMatched)
         }
 
-        writeJsonSync(filePath, contentMatched, { encoding: 'utf8' })
+        writeJsonSync(filePath, contentMatched, { encoding: 'utf8', spaces: options.indentation })
 
         outputPaths.push(filePath)
     }
